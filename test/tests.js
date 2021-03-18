@@ -6,7 +6,7 @@ import ShopCartPage from '../pages/ShopCartPage'
 
 fixture('Saucedemo feature testing')
     .page `https://www.saucedemo.com/`
-/*
+
 test('Login with a valid user', async t => {
     await t
         .typeText(LoginPage.usernameField, "standard_user")
@@ -112,7 +112,7 @@ test('Fill users information', async t => {
     await t.expect(overviewPage.pageTitle.exists).ok()
 })
 
-*/
+
 
 
 test('Final order items', async t => {
@@ -120,28 +120,9 @@ test('Final order items', async t => {
         .typeText(LoginPage.usernameField, "standard_user")
         .typeText(LoginPage.passwordField, "secret_sauce")
         .click(LoginPage.loginButton)
-        let cartItems = []
-        let qtyItems = 0
-        let totalItems = []
-        let i = 0
-        let htmlOutput
-    await t    
         .click(inventoryPage.add2CartButton)
         .click(inventoryPage.ShopCartButton)
-        console.log("hello")
-        qtyItems = await ShopCartPage.cartItems.count
-        console.log(qtyItems)
-        for(i=0; i<qtyItems; i++){
-            console.log(i)
-            htmlOutput = await ShopCartPage.cartItems.filter('.inventory_item_name')
-            console.log(htmlOutput.innerTEXT) //#item_4_title_link > div
-        }
-        //const quantityNumber2 = await ShopCartPage.ShopCartItemQty2.count
-        /*for (i in cartItems){
-            console.log(i)
-        }*/
-        //console.log("can i also?")
-       /* .click(ShopCartPage.ContinueShopping)
+        .click(ShopCartPage.ContinueShopping)
         .click(inventoryPage.add2CartButton2)
         .click(inventoryPage.ShopCartButton)
         .click(ShopCartPage.CheckoutBtn)
@@ -150,12 +131,25 @@ test('Final order items', async t => {
         .typeText(checkoutPage.zipCode, "12345")
         .click(checkoutPage.continueBtn)
         
-    await t.expect(checkoutPage.errorMsg.exists).ok()*/
-}
+    await t.expect(overviewPage.pageTitle.exists).ok()
+})
 
-
-
-)
-
-
-
+test('Complete a purchase', async t => {
+    await t
+        .typeText(LoginPage.usernameField, "standard_user")
+        .typeText(LoginPage.passwordField, "secret_sauce")
+        .click(LoginPage.loginButton)
+        .click(inventoryPage.add2CartButton)
+        .click(inventoryPage.ShopCartButton)
+        .click(ShopCartPage.ContinueShopping)
+        .click(inventoryPage.add2CartButton2)
+        .click(inventoryPage.ShopCartButton)
+        .click(ShopCartPage.CheckoutBtn)
+        .typeText(checkoutPage.firstName, "Paul")
+        .typeText(checkoutPage.lastName, "Furlan")
+        .typeText(checkoutPage.zipCode, "12345")
+        .click(checkoutPage.continueBtn)
+        .click(overviewPage.finishBtn)
+        
+    await t.expect(complete.pageTitle.exists).ok()
+})
