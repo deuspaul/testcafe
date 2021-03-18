@@ -152,5 +152,5 @@ test('Complete a purchase', async t => {
         .click(checkoutPage.continueBtn)
         .click(overviewPage.finishBtn)
         
-    await t.expect(complete.pageTitle.exists).ok()
+    await t.expect(completePage.pageTitle.exists).ok()
 })
