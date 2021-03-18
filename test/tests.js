@@ -3,6 +3,7 @@ import inventoryPage from '../pages/inventoryPage'
 import LoginPage from '../pages/LoginPage'
 import overviewPage from '../pages/overviewPage'
 import ShopCartPage from '../pages/ShopCartPage'
+import completePage from '../pages/complete'
 
 fixture('Saucedemo feature testing')
     .page `https://www.saucedemo.com/`
