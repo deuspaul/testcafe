@@ -1,0 +1,11 @@
+{
+    "name": "saucedemo",
+    "version": "1.0.0",
+    "description": "Wizeline GDL FS QA Certification Homework",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "deusPaul",
+    "license": "ISC"
+  }
